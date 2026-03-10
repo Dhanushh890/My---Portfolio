@@ -1,0 +1,33 @@
+# General
+.DS_Store
+Thumbs.db
+
+# Python / Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Database
+db.sqlite3
+*.sqlite3-journal
+
+# Media files
+media/
+frontend/public/media/
+
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
