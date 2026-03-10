@@ -46,3 +46,9 @@ def custom_has_permission(request):
     return request.user.username == 'Dhanush'
 
 admin.site.has_permission = custom_has_permission
+
+# Set Admin Header Links
+admin.site.site_header = "DS Portfolio Admin"
+admin.site.site_title = "DS Portfolio CMS"
+admin.site.index_title = "Manage your Portfolio Content"
+admin.site.site_url = "https://dhanush-portfolio-pi.vercel.app/" # This adds the "View Site" link at the top
