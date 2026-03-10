@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Education from './components/Education';
+import Resume from './components/Resume';
 import Contact from './components/Contact';
 
 const API_URL = 'http://127.0.0.1:8000/api/';
@@ -18,6 +19,7 @@ function App() {
     projects: [],
     experience: [],
     education: [],
+    resume: [],
     contact: null
   });
   const [loading, setLoading] = useState(true);
@@ -25,12 +27,13 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [profileRes, skillsRes, projectsRes, expRes, eduRes, contactRes] = await Promise.all([
+        const [profileRes, skillsRes, projectsRes, expRes, eduRes, resumeRes, contactRes] = await Promise.all([
           axios.get(`${API_URL}profile/`),
           axios.get(`${API_URL}skills/`),
           axios.get(`${API_URL}projects/`),
           axios.get(`${API_URL}experience/`),
           axios.get(`${API_URL}education/`),
+          axios.get(`${API_URL}resume/`),
           axios.get(`${API_URL}contact/`)
         ]);
 
@@ -40,6 +43,7 @@ function App() {
           projects: projectsRes.data,
           experience: expRes.data,
           education: eduRes.data,
+          resume: resumeRes.data,
           contact: contactRes.data[0] || null
         });
       } catch (error) {
@@ -80,6 +84,7 @@ function App() {
         <Projects projects={data.projects} />
         <Experience experiences={data.experience} />
         <Education education={data.education} />
+        <Resume resume={data.resume} />
         <Contact contact={data.contact} />
       </main>
       <footer className="footer">

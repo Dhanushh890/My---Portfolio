@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Skill, Project, Experience, Education, Contact
+from .models import Profile, Skill, Project, Experience, Education, Contact, Resume
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -27,6 +27,10 @@ class EducationAdmin(admin.ModelAdmin):
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('email', 'phone')
+
+@admin.register(Resume)
+class ResumeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'uploaded_at')
 
 # Restrict Admin Access to 'Dhanush' only
 original_has_permission = admin.site.has_permission

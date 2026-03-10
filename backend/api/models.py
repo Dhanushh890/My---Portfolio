@@ -60,3 +60,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return "Contact Details"
+
+class Resume(models.Model):
+    title = models.CharField(max_length=150, default="My Resume")
+    description = models.TextField(blank=True, help_text="Optional short description shown above the download button")
+    file = models.FileField(upload_to='resumes/')
+    uploaded_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
