@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-21!rb1p(zc2v(^u%v2u6zgflrun&43ann2%e%0j&4qgc3-&-z@
 import os
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('RENDER', 'False').lower() != 'true'
-# If on Render, DEBUG=False. Locally, DEBUG=True.
-if os.environ.get('DATABASE_URL'):
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
+
+# Ensure DEBUG is False on PythonAnywhere/Production unless explicitly set
+if os.environ.get('PYTHONANYWHERE_DOMAIN') or os.environ.get('RENDER'):
     DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1 *').split()
 
 
 # Application definition
