@@ -22,8 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-21!rb1p(zc2v(^u%v2u6zgflrun&43ann2%e%0j&4qgc3-&-z@'
 
+import os
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('RENDER', 'False').lower() != 'true'
+# If on Render, DEBUG=False. Locally, DEBUG=True.
+if os.environ.get('DATABASE_URL'):
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
