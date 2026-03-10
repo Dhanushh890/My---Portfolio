@@ -10,7 +10,7 @@ import Education from './components/Education';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 
-const API_URL = 'http://127.0.0.1:8000/api/';
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/';
 
 function App() {
   const [data, setData] = useState({

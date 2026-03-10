@@ -11,8 +11,9 @@ const Resume = ({ resume }) => {
     : `${API_BASE}${latestResume.file}`;
 
   const handleDownload = () => {
+    const API_BASE = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api/";
     // Use the dedicated download endpoint that forces file download
-    window.location.href = "http://127.0.0.1:8000/api/resume/download/";
+    window.location.href = `${API_BASE}resume/download/`;
   };
 
   return (
