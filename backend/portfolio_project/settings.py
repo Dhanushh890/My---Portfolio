@@ -31,7 +31,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
 if os.environ.get('PYTHONANYWHERE_DOMAIN') or os.environ.get('RENDER'):
     DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1 *').split()
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1 .onrender.com').split()
 
 
 # Application definition
